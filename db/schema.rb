@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_173425) do
+ActiveRecord::Schema.define(version: 2021_05_22_192649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string "brand", null: false
+    t.string "model", null: false
+    t.string "condition", null: false
+    t.integer "price_cents", null: false
+    t.bigint "dealership_id"
+    t.index ["dealership_id"], name: "index_cars_on_dealership_id"
+  end
+
+  create_table "dealerships", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -24,4 +38,5 @@ ActiveRecord::Schema.define(version: 2021_05_22_173425) do
     t.string "password_digest"
   end
 
+  add_foreign_key "cars", "dealerships"
 end
