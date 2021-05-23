@@ -1,0 +1,18 @@
+<div>
+  <h2>Cars Details</h2>
+  <div>
+    <p>
+      <span>Brand: <strong><%= @car.brand %></strong></span><br>
+      <span>Model: <strong><%= @car.model %></strong></span><br>
+      <span>Condition: <strong><%= @car.condition.capitalize %></strong></span><br>
+      <span>Price: <span style='color:green;'><%= humanized_money_with_symbol(@car.price) %></span></span>
+    </p>
+
+    <p>
+      <span>Dealership: <strong><%= @car.dealership.name %></strong></span><br>
+      <span>Location: <strong><%= @car.dealership.address %></strong></span>
+    </p>
+    <%= link_to "<- back", cars_path %>
+    <%= link_to "delete", car_path(@car.id), method: :delete %>
+  </div>
+</div>
