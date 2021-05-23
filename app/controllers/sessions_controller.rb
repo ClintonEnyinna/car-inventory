@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if @current_user.present?
+    log_out if current_user.present?
     redirect_to '/'
   end
 

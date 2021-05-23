@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     session[:id] = nil
     @current_user = nil
   end
+
+  def logged_in?
+    redirect_to login_path if current_user.nil?
+  end
 end
