@@ -37,10 +37,4 @@ class CarsController < ApplicationController
   def car_params
     params.require(:car).permit(:brand, :model, :condition, :price, :dealership_id)
   end
-
-  def is_admin?
-    return if current_user.admin?
-
-    redirect_to cars_path
-  end
 end
