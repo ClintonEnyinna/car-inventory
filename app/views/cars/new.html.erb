@@ -24,7 +24,7 @@
 
   <div>
     <%= f.label 'condition:' %>
-    <%= f.select :condition, ["new", "used"] %>
+    <%= f.select :condition, Car::CONDITIONS %>
   </div>
   <br>
 
@@ -43,3 +43,4 @@
   <%= f.submit 'Add to Inventory' %>
 
 <% end %>
+<%= link_to "<- back", cars_path %>
