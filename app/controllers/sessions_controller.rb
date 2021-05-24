@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params.dig(:session, :password))
       log_in(@user)
 
-      redirect_to '/'
+      redirect_to cars_path
     else
       render :new
     end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if current_user.present?
-    redirect_to '/'
+    redirect_to login_path
   end
 
 end
