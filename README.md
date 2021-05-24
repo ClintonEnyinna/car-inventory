@@ -23,6 +23,8 @@ Once the previous requirements are met. Follow the next steps:
 
 `$ bundle install`
 
+`$ yarn install`
+
 
 Proceed with the following:
 
