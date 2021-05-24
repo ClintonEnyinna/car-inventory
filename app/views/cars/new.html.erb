@@ -1,0 +1,46 @@
+<%= form_for(@car) do |f| %>
+  <h2>Add a new car to inventory</h2>
+  <% if @car.errors.any? %>
+    <div>
+      <ul>
+        <% @car.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label 'brand:' %> <br>
+    <%= f.text_field :brand%>
+  </div>
+  <br>
+  
+  <div>
+    <%= f.label 'model:' %> <br>
+    <%= f.text_field :model%>
+  </div>
+  <br>
+
+  <div>
+    <%= f.label 'condition:' %>
+    <%= f.select :condition, Car::CONDITIONS %>
+  </div>
+  <br>
+
+  <div>
+    <%= f.label 'price:' %> <br>
+    <%= f.number_field :price %>
+  </div>
+  <br>
+
+  <div>
+    <%= f.label 'Dealerships:' %>
+    <%= f.collection_select :dealership_id, Dealership.all, :id, :name %>
+  </div>
+  <br>
+
+  <%= f.submit 'Add to Inventory' %>
+
+<% end %>
+<%= link_to "<- back", cars_path %>

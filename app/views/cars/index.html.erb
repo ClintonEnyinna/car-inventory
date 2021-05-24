@@ -1,0 +1,19 @@
+<div>
+  <h2>List of Cars Available</h2>
+  <% @cars.each do |car| %>
+    <div>
+      <span><%= car.brand %> - <%= car.model %></span><br/>
+      <span style='color:green;'><%= humanized_money_with_symbol(car.price) %></span>
+      <div>
+        <%= link_to "more...", car_path(car.id) %>
+      </div>
+      <br>
+    </div>
+  <% end %>
+
+  <% if current_user&.admin? %>
+    <%= link_to "New car", new_car_path%><br>
+    <%= link_to "New dealership", new_dealership_path%><br>
+  <% end %>
+  <%= link_to "Log out", logout_path, method: :delete %>
+</div>
