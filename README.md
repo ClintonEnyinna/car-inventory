@@ -19,7 +19,7 @@ Once the previous requirements are met. Follow the next steps:
 
 `$ git clone <this repo url>`
 
-`$ cd car_inventory`
+`$ cd car-inventory`
 
 `$ bundle install`
 
